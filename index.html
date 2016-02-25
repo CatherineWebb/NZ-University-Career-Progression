@@ -6,7 +6,7 @@
       <meta name="description" content="Career progression of males and females within science faculties of NZ universities">
       <meta name="keywords" content="NZ, New Zealand, academic, university, gender, female, STEM, male">
      <!-- <link rel="shortcut icon" href="../Images/tepunaha.png"> -->
-      <title>University Job Progression</title>
+      <title>University of Auckland Gender Balance</title>
   </head>
 
   <body>
@@ -25,13 +25,13 @@
       }
 
       .bar {
-        fill-opacity: 0.5;
+        fill-opacity: 1;
       }
       .bar.left {
-        fill: steelblue;
+        fill: #02459A;
       }
       .bar.right {
-        fill: firebrick;
+        fill: #a20018;
       }
 
       body {
@@ -43,8 +43,8 @@
         display: inline-block;
         position: relative;
         font-size: 13px;
-        color: #fff;
-        background-color: #3399ff;
+        color: #000000;
+        background-color: #ffff;
         border-color: #003380;
         width: 300px;
         height: 30px;
@@ -88,27 +88,10 @@
       </optgroup>
     </select></p>
 
-   <!-- <p><div id="data-controls">
-      <input name="mode" type="radio" value="raw" id="raw" onclick="function updateraw()" checked><label for="data-raw"> Raw data</label>
-      <input name="mode" type="radio" value="percent" id="percent" onclick="function updatepercent()"><label for="data-percent"> Percentage</label>
-    </div></p> --> 
 
     <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
     <script id="jsbin-javascript">
 
- /*   var tipM = d3.tip()
-      .attr('class', 'd3-tip')
-      .offset([-10, 0])
-      .html(function(d) {
-        return "<strong>"+ d.male + "</strong> <span style='color:white'></span>";
-      })
-
-    var tipF = d3.tip()
-      .attr('class', 'd3-tip')
-      .offset([-10, 0])
-      .html(function(d) {
-        return "<strong>"+ d.female + "</strong> <span style='color:white'></span>";
-      }) */ //MIGHT STILL NEED LATER
 
     var tipMpercent = d3.tip()
       .attr('class', 'd3-tip')
@@ -132,9 +115,9 @@
     var margin = {
       top: 40,
       right: 20,
-      bottom: 24,
+      bottom: 45,
       left: 20,
-      middle: 58
+      middle: 80
     };
         
     // the width of each side of the chart
@@ -205,114 +188,13 @@
           .style("font-size", "18px") 
           .text("Career Progression in "+ "University Departments" +"");
 
-    /*  // SET UP SCALES - raw
-        
-      // the xScale goes from 0 to the width of a region, it will be reversed for the left x-axis
-      var xScale = d3.scale.linear()
-        .domain([0, maxValue])
-        .range([0, regionWidth])
-        .nice();
-
-      var xScaleLeft = d3.scale.linear()
-        .domain([0, maxValue])
-        .range([regionWidth, 0]); //why can't they be nice, too?
-
-      var xScaleRight = d3.scale.linear()
-        .domain([0, maxValue])
-        .range([0, regionWidth]);
-
-      var yScale = d3.scale.ordinal()
-        .domain(exampleData.map(function(d) { return d.group; }))
-        .rangeRoundBands([h,0], 0.1);
-
-
-      // SET UP AXES
-      var yAxisLeft = d3.svg.axis()
-        .scale(yScale)
-        .orient('right')
-        .tickSize(4,0)
-        .tickPadding(margin.middle-4);
-
-      var yAxisRight = d3.svg.axis()
-        .scale(yScale)
-        .orient('left')
-        .tickSize(4,0)
-        .tickFormat('');
-
-      var xAxisRight = d3.svg.axis()
-        .scale(xScale)
-        .orient('bottom')
-        .tickFormat(d3.format("d"));
-
-      var xAxisLeft = d3.svg.axis()
-        // REVERSE THE X-AXIS SCALE ON THE LEFT SIDE BY REVERSING THE RANGE
-        .scale(xScale.copy().range([pointA, 0]))
-        .orient('bottom')
-        .tickFormat(d3.format("d"));
-
-      // MAKE GROUPS FOR EACH SIDE OF CHART
-      // scale(-1,1) is used to reverse the left side so the bars grow left instead of right
-      var leftBarGroup = svg.append('g')
-        .attr('transform', translation(pointA, 0) + 'scale(-1,1)');
-      var rightBarGroup = svg.append('g')
-        .attr('transform', translation(pointB, 0));
-
-      // DRAW AXES
-      svg.append('g')
-        .attr('class', 'axis y left')
-        .attr('transform', translation(pointA, 0))
-        .call(yAxisLeft)
-        .selectAll('text')
-        .style('text-anchor', 'middle');
-
-      svg.append('g')
-        .attr('class', 'axis y right')
-        .attr('transform', translation(pointB, 0))
-        .call(yAxisRight);
-
-      svg.append('g')
-        .attr('class', 'axis x left')
-        .attr('transform', translation(0, h))
-        .call(xAxisLeft);
-
-      svg.append('g')
-        .attr('class', 'axis x right')
-        .attr('transform', translation(pointB, h))
-        .call(xAxisRight);
-
-      // DRAW BARS
-      leftBarGroup.selectAll('.bar.left')
-        .data(exampleData)
-        .enter().append('rect')
-          .attr('class', 'bar left')
-          .attr('x', 0)
-          .attr('y', function(d) { return yScale(d.group); })
-          .attr('width', function(d) { return xScale(d.male); })
-          .attr('height', yScale.rangeBand())
-          .on('mouseover', tipM.show)
-          .on('mouseout', tipM.hide);
-
-      rightBarGroup.selectAll('.bar.right')
-        .data(exampleData)
-        .enter().append('rect')
-          .attr('class', 'bar right')
-          .attr('x', 0)
-          .attr('y', function(d) { return yScale(d.group); })
-          .attr('width', function(d) { return xScale(d.female); })
-          .attr('height', yScale.rangeBand())
-          .on('mouseover', tipF.show)
-          .on('mouseout', tipF.hide); */
+   
     } 
 
     function updatepercent(exampleData) { //
 
-    // GET THE TOTAL POPULATION SIZE AND CREATE A FUNCTION FOR RETURNING THE PERCENTAGE
-    /*var totalPopulation = exampleData.map(function(d) { return d.male; });
-        //var totalPopulation = d3.sum(exampleData, function(d) { return d.male + d.female; }),
-        percentage = function(d) { return d / totalPopulation; };
-
     // find the maximum data value on either side since this will be shared by both of the x-axes
-*/
+
     var maxValue = Math.max(
       d3.max(exampleData, function(d) { return (1); }),
       d3.max(exampleData, function(d) { return (1); })
@@ -325,7 +207,7 @@
         .attr("y", "-11px")            
         .attr("text-anchor", "middle")  
         .style("font-size", "18px") 
-        .text("Career Progression in "+ "University Departments" +"");
+        .text("University of Auckland Gender Balance");
 
     // SET UP SCALES
       
@@ -395,12 +277,33 @@
     svg.append('g')
       .attr('class', 'axis x left')
       .attr('transform', translation(0, h))
-      .call(xAxisLeft);
+      .call(xAxisLeft)
+	  .selectAll('text')
+      .style('text-anchor', 'middle');
 
     svg.append('g')
       .attr('class', 'axis x right')
       .attr('transform', translation(pointB, h))
       .call(xAxisRight);
+	  
+	  // LABEL X AXES
+	  
+		  svg.append("text")
+          .attr("x", (regionWidth/2)) 
+          .attr("y", h+3*margin.bottom/4)            
+          .attr("text-anchor", "middle")  
+          .style("font-size", "14px") 
+          .text("Male");
+	  
+		svg.append("text")
+          .attr("x", (w-regionWidth/2)) 
+          .attr("y", h+3*margin.bottom/4)            
+          .attr("text-anchor", "middle")  
+          .style("font-size", "14px") 
+          .text("Female");
+		  
+		
+	  
 
     // DRAW BARS
     leftBarGroup.selectAll('.bar.left')
